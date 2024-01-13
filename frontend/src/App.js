@@ -9,10 +9,9 @@ import "./App.css";
 //     origin: "*",
 //   },
 // });
-const socket = io.connect("https://video-calling-app-beige.vercel.app/", {
-  cors: {
-    origin: "*",
-  },
+const socket = io("https://video-calling-app-beige.vercel.app/", {
+  withCredentials: true,
+  
 });
 
 function App() {
