@@ -4,10 +4,7 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import "./App.css";
 
-const socket = io.connect("https://video-calling-app-beige.vercel.app/", {
-  reconnection: true,
-  reconnectionAttempts: 3,
-});
+const socket = io.connect("https://video-calling-app-beige.vercel.app");
 
 function App() {
   const [me, setMe] = useState("");
