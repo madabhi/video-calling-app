@@ -4,14 +4,7 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import "./App.css";
 
-// const socket = io.connect("https://video-calling-app-beige.vercel.app/", {
-//   cors: {
-//     origin: "*",
-//   },
-// });
-const socket = io("https://video-calling-app-beige.vercel.app/", {
-  
-});
+const socket = io("https://video-calling-app-beige.vercel.app/", {});
 
 function App() {
   const [me, setMe] = useState("");
@@ -45,20 +38,27 @@ function App() {
     };
 
     getMedia();
-    socket.on("me", (id) => {
-      setMe(id);
-    });
+    const setupSocket = () => {
+      socket.on("me", (id) => {
+        setMe(id);
+      });
+      socket.on("callUser", (data) => {
+        setReceivingCall(true);
+        setCaller(data.from);
+        setUsers(data.name);
+        setCallerSignal(data.signal);
+      });
+      socket.on("callEnded", () => {
+        setCallEnded(true);
+        // window.location.reload();
+      });
 
-    socket.on("callUser", (data) => {
-      setReceivingCall(true);
-      setCaller(data.from);
-      setUsers(data.name);
-      setCallerSignal(data.signal);
-    });
-    socket.on("callEnded", () => {
-      setCallEnded(true);
-      window.location.reload();
-    });
+      socket.on("connect_error", (err) => {
+        console.error("Socket connection error:", err.message);
+      });
+    };
+
+    setupSocket();
   }, []);
 
   const callUser = (id) => {

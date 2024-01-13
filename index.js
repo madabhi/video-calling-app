@@ -10,6 +10,7 @@ const io = require("socket.io")(server, {
 });
 
 io.on("connection", (socket) => {
+  console.log("User connected: " + socket.id);
   socket.on("connect", () => {
     console.log(socket.id); // x8WIv7-mJelg7on_ALbx
   });
