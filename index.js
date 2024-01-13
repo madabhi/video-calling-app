@@ -6,7 +6,6 @@ const io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
-    credentials: true,
   },
 });
 
@@ -34,13 +33,11 @@ io.on("connection", (socket) => {
   socket.on("endCall", (data) => {
     io.to(data.idToCall).emit("callEnded");
     console.log("Ending call with: " + data.idToCall);
-
   });
-
 });
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
-}); 
+});
 
 server.listen();

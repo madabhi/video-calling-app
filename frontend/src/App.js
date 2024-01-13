@@ -10,7 +10,6 @@ import "./App.css";
 //   },
 // });
 const socket = io("https://video-calling-app-beige.vercel.app/", {
-  withCredentials: true,
   
 });
 
