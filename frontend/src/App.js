@@ -4,6 +4,11 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import "./App.css";
 
+// const socket = io.connect("https://video-calling-app-beige.vercel.app/", {
+//   cors: {
+//     origin: "*",
+//   },
+// });
 const socket = io.connect("https://video-calling-app-beige.vercel.app/", {
   cors: {
     origin: "*",

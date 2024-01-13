@@ -42,6 +42,4 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 }); 
 
-server.listen(5000, () => {
-  console.log("listening on : http://localhost:5000");
-});
+server.listen();
