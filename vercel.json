@@ -1,7 +1,6 @@
 {
   "name": "video-calling",
   "version": "1.0.0",
-  "description": "Video calling app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
