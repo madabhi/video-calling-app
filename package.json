@@ -1,6 +1,6 @@
 {
   "name": "video-calling",
-  "version": "1.0.0",
+  "version": "2",
   "description": "video calling app",
   "main": "server.js",
   "author": "Abhinav Singh",
